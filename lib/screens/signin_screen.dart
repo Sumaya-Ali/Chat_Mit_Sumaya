@@ -3,14 +3,14 @@ import 'package:chat_mit_sumaya/widgets/chat_text_field.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
-class RegisterScreen extends StatefulWidget {
-  const RegisterScreen({Key? key}) : super(key: key);
+class SignInScreen extends StatefulWidget {
+  const SignInScreen({Key? key}) : super(key: key);
 
   @override
-  State<RegisterScreen> createState() => _RegisterScreenState();
+  State<SignInScreen> createState() => _SignInScreenState();
 }
 
-class _RegisterScreenState extends State<RegisterScreen> {
+class _SignInScreenState extends State<SignInScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -31,8 +31,8 @@ class _RegisterScreenState extends State<RegisterScreen> {
             ChatTextField(hintText: 'Enter your password', onChange: (){}),
             SizedBox(height: 10,),
             ChatButton(
-                color: Colors.red[200]!,
-                title: 'register',
+                color: Colors.red[800]!,
+                title: 'Sign in',
                 onPressed: (){})
           ],
         ),
