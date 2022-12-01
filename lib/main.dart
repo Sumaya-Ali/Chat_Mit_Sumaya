@@ -1,3 +1,4 @@
+import 'package:chat_mit_sumaya/screens/register_screen.dart';
 import 'package:chat_mit_sumaya/screens/welcome_screen.dart';
 import 'package:flutter/material.dart';
 
@@ -15,7 +16,7 @@ class MyApp extends StatelessWidget {
 
         primarySwatch: Colors.blue,
       ),
-      home: WelcomeScreen(),
+      home: RegisterScreen(),
     );
   }
 }

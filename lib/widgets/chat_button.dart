@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
 
 class ChatButton extends StatelessWidget {
-  ChatButton({required this.color,required this.title,required this.fontFamily, required this.onPressed});
+  ChatButton({required this.color,required this.title, required this.onPressed});
 
   final Color color;
   final String title;
-  final String fontFamily;
   final Function onPressed;
 
   @override
@@ -24,7 +23,7 @@ class ChatButton extends StatelessWidget {
             title,
             style: TextStyle(
               color: Colors.white,
-              fontFamily: fontFamily,
+              fontFamily: 'Shrikhand',
             ),
           ),
         ),
