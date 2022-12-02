@@ -18,7 +18,14 @@ class MyApp extends StatelessWidget {
 
         primarySwatch: Colors.blue,
       ),
-      home: ChatScreen(),
+    //  home: ChatScreen(),
+      initialRoute: WelcomeScreen.ScreenRoute,
+      routes: {
+        WelcomeScreen.ScreenRoute : (context) => WelcomeScreen(),
+        SignInScreen.ScreenRoute : (context) => SignInScreen(),
+        RegisterScreen.ScreenRoute : (context) => RegisterScreen(),
+        ChatScreen.ScreenRoute : (context) => ChatScreen(),
+      },
     );
   }
 }

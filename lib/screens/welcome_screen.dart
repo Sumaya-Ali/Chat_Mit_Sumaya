@@ -1,9 +1,13 @@
+import 'package:chat_mit_sumaya/screens/register_screen.dart';
+import 'package:chat_mit_sumaya/screens/signin_screen.dart';
 import 'package:chat_mit_sumaya/widgets/chat_button.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 
 class WelcomeScreen extends StatefulWidget {
+  static const String ScreenRoute = 'welcome_screen';
+
   const WelcomeScreen({Key? key}) : super(key: key);
 
   @override
@@ -39,8 +43,19 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
               ],
             ),
             SizedBox(height: 30,),
-            ChatButton(color: Colors.red[800]!,title: 'Sign in',  onPressed: (){},),
-            ChatButton(color: Colors.red[200]!,title: 'register', onPressed: (){},),
+            ChatButton(
+              color: Colors.red[800]!,
+              title: 'Sign in',
+              onPressed: (){
+                Navigator.pushNamed(context, SignInScreen.ScreenRoute);
+              }
+              ,),
+            ChatButton(
+              color: Colors.red[200]!,
+              title: 'register',
+              onPressed: (){
+                Navigator.pushNamed(context, RegisterScreen.ScreenRoute);
+              },),
           ],
         ),
       ),

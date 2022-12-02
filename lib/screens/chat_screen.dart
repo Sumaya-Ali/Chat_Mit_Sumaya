@@ -2,6 +2,9 @@ import 'package:chat_mit_sumaya/widgets/chat_text_field.dart';
 import 'package:flutter/material.dart';
 
 class ChatScreen extends StatefulWidget {
+
+  static const String ScreenRoute = 'chat_screen';
+
   const ChatScreen({Key? key}) : super(key: key);
 
   @override
