@@ -26,9 +26,9 @@ class _SignInScreenState extends State<SignInScreen> {
               height: 180,
             ),
             SizedBox(height: 50,),
-            ChatTextField(hintText: 'Enter your email', onChange: (){}),
+            ChatTextField(hintText: 'Enter your email', withBorder: true, onChange: (){}),
             SizedBox(height: 8,),
-            ChatTextField(hintText: 'Enter your password', onChange: (){}),
+            ChatTextField(hintText: 'Enter your password',withBorder: true,  onChange: (){}),
             SizedBox(height: 10,),
             ChatButton(
                 color: Colors.red[800]!,

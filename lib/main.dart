@@ -1,3 +1,4 @@
+import 'package:chat_mit_sumaya/screens/chat_screen.dart';
 import 'package:chat_mit_sumaya/screens/register_screen.dart';
 import 'package:chat_mit_sumaya/screens/signin_screen.dart';
 import 'package:chat_mit_sumaya/screens/welcome_screen.dart';
@@ -17,7 +18,7 @@ class MyApp extends StatelessWidget {
 
         primarySwatch: Colors.blue,
       ),
-      home: SignInScreen(),
+      home: ChatScreen(),
     );
   }
 }
