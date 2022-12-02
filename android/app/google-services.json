@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "623679972558",
+    "project_id": "chat-mit-sumaya",
+    "storage_bucket": "chat-mit-sumaya.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:623679972558:android:836e88c13765a664b49c9f",
+        "android_client_info": {
+          "package_name": "ali.sumaya.chat_mit_sumaya"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "623679972558-91m1o19i0gn5ust43am9gvqfd50vf02v.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCPLZckKIhNiZYCNH-0GLEFzejAaa6YA2E"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "623679972558-91m1o19i0gn5ust43am9gvqfd50vf02v.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
