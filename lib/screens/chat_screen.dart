@@ -1,4 +1,6 @@
+import 'package:chat_mit_sumaya/services/auth.dart';
 import 'package:chat_mit_sumaya/widgets/chat_text_field.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 class ChatScreen extends StatefulWidget {
@@ -12,6 +14,23 @@ class ChatScreen extends StatefulWidget {
 }
 
 class _ChatScreenState extends State<ChatScreen> {
+
+  AuthService _auth = AuthService();
+  late String currentUserEmail;
+
+  @override
+  void initState() {
+    super.initState();
+    getCurrentUser();
+  }
+
+  void getCurrentUser() async{
+    final user = await _auth.currentUser();
+    if(user != null){
+      currentUserEmail = user.email;
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -26,7 +45,10 @@ class _ChatScreenState extends State<ChatScreen> {
         ),
         actions: [
           IconButton(
-              onPressed: (){},
+              onPressed: () async{
+                await _auth.signOut();
+                Navigator.pop(context);
+              },
               icon: Image.asset('assets/log_out.png',height: 30,),
           )
         ],
@@ -51,9 +73,10 @@ class _ChatScreenState extends State<ChatScreen> {
                 children: [
                   Expanded(
                     child: ChatTextField(
+                      obsecureText: false,
                       hintText: 'write your message here...',
                       withBorder: false,
-                      onChange: (){},
+                      onChange: (value){},
                     ),
                   ),
                   IconButton(
