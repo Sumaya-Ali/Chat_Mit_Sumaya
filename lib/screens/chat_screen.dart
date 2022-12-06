@@ -1,6 +1,7 @@
 import 'package:chat_mit_sumaya/services/auth.dart';
 import 'package:chat_mit_sumaya/services/database.dart';
 import 'package:chat_mit_sumaya/widgets/chat_text_field.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
@@ -62,7 +63,36 @@ class _ChatScreenState extends State<ChatScreen> {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            Container(),
+            StreamBuilder<QuerySnapshot>(
+                stream: _database.messages,
+                builder: (context,snapshot){
+
+                  if(!snapshot.hasData){
+                    return Center(
+                      child: CircularProgressIndicator(
+                        backgroundColor: Colors.red[800]!,
+                      ),
+                    );
+                  }
+
+                  List<Text> messagesWidgets = [];
+
+                  final messages = snapshot.data!.documents;
+
+                  for(var message in messages){
+
+                    final text = message['text'];
+                    final email = message['email'];
+
+                    final messageWidget = Text('$text - $email');
+                    messagesWidgets.add(messageWidget);
+                  }
+
+                  return Column(
+                    children: messagesWidgets,
+                  );
+
+                }),
             Container(
               decoration: BoxDecoration(
                 border: Border(

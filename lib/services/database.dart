@@ -10,4 +10,8 @@ class DatabaseService {
       'email' : email,
     });
   }
+
+  Stream<QuerySnapshot> get messages {
+    return messagesCollection.snapshots();
+  }
 }
