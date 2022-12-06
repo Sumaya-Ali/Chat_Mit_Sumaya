@@ -1,4 +1,5 @@
 import 'package:chat_mit_sumaya/services/auth.dart';
+import 'package:chat_mit_sumaya/services/database.dart';
 import 'package:chat_mit_sumaya/widgets/chat_text_field.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
@@ -16,7 +17,10 @@ class ChatScreen extends StatefulWidget {
 class _ChatScreenState extends State<ChatScreen> {
 
   AuthService _auth = AuthService();
+  DatabaseService _database = DatabaseService();
+
   late String currentUserEmail;
+  late String textMessage;
 
   @override
   void initState() {
@@ -76,11 +80,15 @@ class _ChatScreenState extends State<ChatScreen> {
                       obsecureText: false,
                       hintText: 'write your message here...',
                       withBorder: false,
-                      onChange: (value){},
+                      onChange: (value){
+                        textMessage = value;
+                      },
                     ),
                   ),
                   IconButton(
-                    onPressed: (){},
+                    onPressed: () async{
+                      await _database.addMessage(textMessage, currentUserEmail);
+                    },
                     icon: Image.asset('assets/send_message.png',height: 25,),
                   )
                 ],
