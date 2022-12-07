@@ -21,13 +21,14 @@ class MessagesStream extends StatelessWidget {
             return Center(
               child: CircularProgressIndicator(
                 backgroundColor: Colors.red[800]!,
+                color: Colors.red[200],
               ),
             );
           }
 
           List<MessageLine> messagesWidgets = [];
 
-          final messages = snapshot.data!.documents;
+          final messages = snapshot.data!.documents.reversed;
 
           for(var message in messages){
 
@@ -42,6 +43,7 @@ class MessagesStream extends StatelessWidget {
             child: ListView(
               padding: EdgeInsets.symmetric(horizontal: 10,vertical: 20),
               children: messagesWidgets,
+              reverse: true,
             ),
           );
 

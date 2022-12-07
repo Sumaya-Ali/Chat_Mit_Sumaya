@@ -2,6 +2,7 @@ import 'package:chat_mit_sumaya/services/auth.dart';
 import 'package:chat_mit_sumaya/services/database.dart';
 import 'package:chat_mit_sumaya/widgets/chat_text_field.dart';
 import 'package:chat_mit_sumaya/widgets/messages_stream.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 
 class ChatScreen extends StatefulWidget {
@@ -21,7 +22,7 @@ class _ChatScreenState extends State<ChatScreen> {
   AuthService _auth = AuthService();
   DatabaseService _database = DatabaseService();
 
-  late String currentUserEmail;
+  String currentUserEmail ='';
   late String textMessage;
 
   @override
@@ -33,13 +34,21 @@ class _ChatScreenState extends State<ChatScreen> {
   void getCurrentUser() async{
     final user = await _auth.currentUser();
     if(user != null){
-      currentUserEmail = user.email;
+     setState(() {
+       currentUserEmail = user.email;
+     });
     }
   }
 
   @override
-  Widget build(BuildContext context) {
-    return Scaffold(
+  Widget build(BuildContext context){
+
+    return currentUserEmail == '' ? Center(
+      child: CircularProgressIndicator(
+        backgroundColor: Colors.red[800]!,
+        color: Colors.red[200],
+      ),
+    ):  Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.red[200],
         title: Row(
@@ -91,7 +100,7 @@ class _ChatScreenState extends State<ChatScreen> {
                   IconButton(
                     onPressed: () async{
                       messageTextController.clear();
-                      await _database.addMessage(textMessage, currentUserEmail);
+                      await _database.addMessage(textMessage, currentUserEmail,FieldValue.serverTimestamp());
                     },
                     icon: Image.asset('assets/send_message.png',height: 25,),
                   )

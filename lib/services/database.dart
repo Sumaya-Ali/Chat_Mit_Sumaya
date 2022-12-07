@@ -4,14 +4,15 @@ class DatabaseService {
 
   final CollectionReference messagesCollection = Firestore.instance.collection('message');
 
-  Future addMessage(String text, String email) async{
+  Future addMessage(String text, String email,FieldValue time) async{
     return await messagesCollection.add({
       'text' : text,
       'email' : email,
+      'time' : time,
     });
   }
 
   Stream<QuerySnapshot> get messages {
-    return messagesCollection.snapshots();
+    return messagesCollection.orderBy('time') .snapshots();
   }
 }
