@@ -64,7 +64,7 @@ class _ChatScreenState extends State<ChatScreen> {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            MessagesStream(),
+            MessagesStream(currentUserEmail: currentUserEmail,),
             Container(
               decoration: BoxDecoration(
                 border: Border(

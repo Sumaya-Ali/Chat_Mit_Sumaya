@@ -4,7 +4,9 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 
 class MessagesStream extends StatelessWidget {
-  const MessagesStream({Key? key}) : super(key: key);
+  const MessagesStream({Key? key, required this.currentUserEmail}) : super(key: key);
+
+  final String currentUserEmail;
 
   @override
   Widget build(BuildContext context) {
@@ -32,7 +34,7 @@ class MessagesStream extends StatelessWidget {
             final text = message['text'];
             final email = message['email'];
 
-            final messageWidget = MessageLine(text: text,email: email,);
+            final messageWidget = MessageLine(text: text,email: email,isMe: currentUserEmail== email ? true:false,);
             messagesWidgets.add(messageWidget);
           }
 
