@@ -42,6 +42,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
               ),
               SizedBox(height: 50,),
               ChatTextField(
+                  messageTextController: null,
                   obsecureText: false,
                   hintText: 'Enter your email',
                   withBorder: true,
@@ -50,6 +51,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                   }),
               SizedBox(height: 8,),
               ChatTextField(
+                  messageTextController: null,
                   obsecureText: true,
                   hintText: 'Enter your password',
                   withBorder: true,

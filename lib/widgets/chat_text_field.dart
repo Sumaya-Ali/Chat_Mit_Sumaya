@@ -2,15 +2,17 @@ import 'package:flutter/material.dart';
 
 class ChatTextField extends StatelessWidget {
 
-  ChatTextField({required this.hintText,required this.withBorder, required this.obsecureText, required this.onChange});
+  ChatTextField({required this.messageTextController, required this.hintText,required this.withBorder, required this.obsecureText, required this.onChange});
 
   final String hintText;
   final void Function(String)? onChange;
   final bool withBorder;
   final bool obsecureText;
+  final TextEditingController? messageTextController;
   @override
   Widget build(BuildContext context) {
     return TextField(
+      controller: messageTextController,
       textAlign: TextAlign.center,
       keyboardType: !obsecureText ? TextInputType.emailAddress: null,
       obscureText: obsecureText ? true:false,
