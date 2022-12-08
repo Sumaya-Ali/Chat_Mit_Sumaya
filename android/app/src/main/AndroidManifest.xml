@@ -1,7 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="ali.sumaya.chat_mit_sumaya">
    <application
-        android:label="chat_mit_sumaya"
+        android:label="Chat mit Sumaya"
         android:icon="@mipmap/ic_launcher">
         <activity
             android:name=".MainActivity"
