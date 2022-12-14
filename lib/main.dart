@@ -48,6 +48,7 @@ class _MyAppState extends State<MyApp> {
         color: Colors.red[200],
       ),
     ): MaterialApp(
+      debugShowCheckedModeBanner: false,
        title: 'Chat mit Sumaya',
        theme: ThemeData(
 
